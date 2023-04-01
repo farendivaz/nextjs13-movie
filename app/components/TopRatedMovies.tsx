@@ -8,7 +8,7 @@ export default function topRatedMovies({
 }) {
   return (
     <div className="flex flex-wrap justify-center items-center">
-      {topRatedMovies.slice(0, 5).map((movie: Movie) => (
+      {topRatedMovies.slice(0, 4).map((movie: Movie) => (
         <MovieCard movie={movie} key={movie.id} />
       ))}
     </div>

@@ -35,3 +35,13 @@ export async function getMovieRecom(id: number) {
 
   return data.results;
 }
+
+export async function getPersonMovies(id: number) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.env.API_KEY}&language=en-US`
+  );
+
+  const data = await res.json();
+
+  return data.cast;
+}
