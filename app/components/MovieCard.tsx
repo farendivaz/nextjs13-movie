@@ -18,6 +18,7 @@ export default function MovieCard({ movie }: { movie: any }) {
         width={280}
         height={350}
         className="rounded-t-xl"
+        loading="lazy"
       />
       <p className="text-white font-bold my-4">{movie.title}</p>
     </Link>

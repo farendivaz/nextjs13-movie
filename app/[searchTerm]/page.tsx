@@ -7,26 +7,27 @@ type Props = {
   };
 };
 
-export default async function SearchResults({ params: { searchTerm } }: Props) {
+async function getSearchResults(searchTerm: string): Promise<JSX.Element> {
   try {
-    const moviesData: Promise<Movie[]> = getMovieResults(searchTerm);
-    const data = await moviesData;
+    const movies: Movie[] = await getMovieResults(searchTerm);
 
-    if (!data || data.length === 0) {
+    if (!movies.length) {
       return <h2 className="p-2 text-xl">{`${searchTerm} Not Found`}</h2>;
     }
 
-    const content = (
+    return (
       <main className="flex flex-wrap justify-center items-center mx-auto py-1 min-h-screen">
-        {data.map((movie) => (
+        {movies.map((movie) => (
           <MovieCard movie={movie} key={movie.id} />
         ))}
       </main>
     );
-
-    return content;
   } catch (error) {
     console.error(error);
     return <h2 className="p-2 text-xl">{`${searchTerm} Not Found`}</h2>;
   }
+}
+
+export default async function SearchResults({ params: { searchTerm } }: Props) {
+  return getSearchResults(searchTerm);
 }

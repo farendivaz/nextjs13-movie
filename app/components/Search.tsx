@@ -22,11 +22,11 @@ export default function Search() {
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="text-black bg-white p-2 w-50 text-xl rounded-xl border-none "
+        className="text-gray bg-black p-2 w-50 text-lg rounded-l-sm border border-gray-50 outline-none "
         placeholder="Search"
       />
-      <button className="p-2 text-xl rounded-xl bg-slate-300 ml-2 font-bold">
-        🚀
+      <button className="p-2 text-lg rounded-r-sm bg-black border border-gray-50  font-bold">
+        🔎
       </button>
     </form>
   );

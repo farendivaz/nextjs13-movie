@@ -14,6 +14,7 @@ export default function CastCard({ cast }: { cast: any }) {
         width={50}
         height={50}
         className="rounded-full"
+        loading="lazy"
       />
     </Link>
   );
