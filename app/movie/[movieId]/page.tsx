@@ -1,3 +1,4 @@
+import CastCard from "@/app/components/CastCard";
 import MovieCard from "@/app/components/MovieCard";
 import { getMovieCasts, getMovieDetails, getMovieRecom } from "@/lib/movies";
 import Image from "next/image";
@@ -63,19 +64,7 @@ export default async function Movie({
           <h3 className="font-bold">TOP CAST</h3>
           <div className="flex flex-wrap gap-2 mb-8">
             {casts.slice(0, 10).map((cast: Cast) => (
-              <Link href={`/person/${cast.id}`} key={cast.id}>
-                <Image
-                  src={
-                    cast?.profile_path
-                      ? `${process.env.IMAGE_URL}${cast?.profile_path}`
-                      : `${process.env.EMPTY_IMAGE_URL}`
-                  }
-                  alt={title}
-                  width={50}
-                  height={50}
-                  className="rounded-full"
-                />
-              </Link>
+              <CastCard cast={cast} key={cast.id} />
             ))}
           </div>
           <div className="flex gap-4">

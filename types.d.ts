@@ -12,3 +12,9 @@ type Cast = {
   character: string;
   profile_path: string;
 };
+
+type SearchResult = {
+  query?: {
+    pages?: Result[];
+  };
+};

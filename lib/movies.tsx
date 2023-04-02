@@ -45,3 +45,23 @@ export async function getPersonMovies(id: number) {
 
   return data.cast;
 }
+
+export async function getPersonDetails(id: number) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.API_KEY}&language=en-US`
+  );
+
+  const data = await res.json();
+
+  return data;
+}
+
+export async function getMovieResults(search: string) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${search}&page=1&include_adult=false`
+  );
+
+  const data = await res.json();
+
+  return data.results;
+}
