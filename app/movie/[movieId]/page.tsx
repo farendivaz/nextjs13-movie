@@ -33,9 +33,9 @@ export default async function Movie({
     <div>
       <div
         key={id}
-        className="w-4/5 flex justify-evenly items-center mx-auto my-8"
+        className="w-4/5 flex flex-col md:flex-row justify-evenly items-center mx-auto my-4 md:my-8"
       >
-        <div className="w-2/5">
+        <div className="w-full md:w-2/5">
           <Image
             src={
               poster_path
@@ -48,8 +48,8 @@ export default async function Movie({
             className="rounded-md"
           />
         </div>
-        <div className="h-[520px] w-1/2 flex flex-col justify-evenly ">
-          <h3 className="text-5xl font-bold">{title}</h3>
+        <div className="h-[520px] mt-12 md:mt-0 w-full md:w-1/2 flex flex-col justify-evenly ">
+          <h3 className="text-2xl md:text-4xl font-bold">{title}</h3>
           <span className="text-white font-bold mb-4">
             ⭐ {vote_average} | {release_date}
           </span>
@@ -92,7 +92,9 @@ export default async function Movie({
         </div>
       </div>
 
-      <h1 className="text-xl font-bold mt-16 ml-40">TOP RECOMMENDATIONS</h1>
+      <h1 className="text-xl font-bold text-center md:text-left mt-24 md:ml-40">
+        TOP RECOMMENDATIONS
+      </h1>
       <div className="flex flex-wrap justify-center items-center">
         {recommendations.slice(0, 4).map((rec: Movie) => (
           <MovieCard movie={rec} key={rec.id} />

@@ -16,16 +16,16 @@ export default function Search() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-50 flex justify-center md:justify-between"
+      className="w-28 md:w-52 flex justify-evenly md:justify-between"
     >
       <input
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="text-gray bg-black p-2 w-50 text-lg rounded-l-sm border border-gray-50 outline-none "
+        className="text-gray bg-black w-28 md:w-52 p-1 md:p-2 text-lg rounded-l-sm border border-gray-50 outline-none "
         placeholder="Search"
       />
-      <button className="p-2 text-lg rounded-r-sm bg-black border border-gray-50  font-bold">
+      <button className="text-md mr-8 p-1 rounded-r-sm bg-black border border-gray-50  font-bold md:p-2">
         🔎
       </button>
     </form>
