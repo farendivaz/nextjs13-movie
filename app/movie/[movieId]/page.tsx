@@ -45,7 +45,7 @@ export default async function Movie({
             alt={title}
             width={350}
             height={450}
-            className="rounded-md"
+            className="rounded-md md:ml-8"
           />
         </div>
         <div className="h-[520px] mt-12 md:mt-0 w-full md:w-1/2 flex flex-col justify-evenly ">

@@ -20,7 +20,7 @@ async function getSearchResults(searchTerm: string): Promise<JSX.Element> {
     }
 
     return (
-      <main className="flex flex-wrap justify-evenly items-center mx-auto py-1 min-h-screen">
+      <main className="flex flex-wrap justify-center items-center mx-auto py-1 min-h-screen">
         {movies.map((movie) => (
           <MovieCard movie={movie} key={movie.id} />
         ))}
