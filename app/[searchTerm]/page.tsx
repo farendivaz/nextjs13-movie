@@ -1,6 +1,5 @@
 import { getMovieResults } from "@/lib/movies";
 import MovieCard from "../components/MovieCard";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -13,7 +12,11 @@ async function getSearchResults(searchTerm: string): Promise<JSX.Element> {
     const movies: Movie[] = await getMovieResults(searchTerm);
 
     if (!movies.length) {
-      return notFound();
+      return (
+        <div className="flex justify-center items-center h-80">
+          <h2 className="p-2 text-xl text-center font-bold">{`No results found for "${searchTerm}"`}</h2>
+        </div>
+      );
     }
 
     return (
@@ -25,7 +28,11 @@ async function getSearchResults(searchTerm: string): Promise<JSX.Element> {
     );
   } catch (error) {
     console.error(error);
-    return notFound();
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <h2 className="p-2 text-xl text-center">{`No results found for "${searchTerm}"`}</h2>
+      </div>
+    );
   }
 }
 
