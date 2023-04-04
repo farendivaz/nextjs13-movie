@@ -33,7 +33,7 @@ export default async function Movie({
     <div>
       <div
         key={id}
-        className="w-4/5 flex flex-col md:flex-row justify-evenly items-center mx-auto my-4 md:my-8"
+        className="w-11/12 md:w-4/5 flex flex-col md:flex-row justify-evenly items-center mx-auto my-4 md:my-8"
       >
         <div className="w-full md:w-2/5">
           <Image
@@ -48,8 +48,8 @@ export default async function Movie({
             className="rounded-md md:ml-8"
           />
         </div>
-        <div className="h-[520px] mt-12 md:mt-0 w-full md:w-1/2 flex flex-col justify-evenly ">
-          <h3 className="text-2xl md:text-4xl font-bold">{title}</h3>
+        <div className="h-[520px] mt-16 md:mt-0 w-11/12 md:w-1/2 flex flex-col justify-evenly ">
+          <h3 className="text-lg md:text-4xl font-bold">{title}</h3>
           <span className="text-white font-bold mb-4">
             ⭐ {vote_average} | {release_date}
           </span>

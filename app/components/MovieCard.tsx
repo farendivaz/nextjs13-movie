@@ -6,7 +6,7 @@ export default function MovieCard({ movie }: { movie: any }) {
     <Link
       href={`/movie/${movie.id}`}
       key={movie.id}
-      className="w-[145px] h-[288px] md:w-[280px] md:h-[475px] flex flex-col justify-center items-center m-4 border-2 border-gray-400 rounded-xl max-w-xs transition duration-300 ease-in-out hover:scale-105"
+      className="w-[145px] h-[288px] md:w-[253px] md:h-[455px] flex flex-col justify-center items-center m-4 bg-slate-800 rounded-xl max-w-xs transition duration-300 ease-in-out hover:scale-105 hover:opacity-80"
     >
       <Image
         src={
@@ -15,14 +15,15 @@ export default function MovieCard({ movie }: { movie: any }) {
             : `${process.env.EMPTY_IMAGE_URL}`
         }
         alt={movie.title}
-        width={280}
-        height={350}
+        width={250}
+        height={320}
         className="rounded-t-xl"
         loading="lazy"
       />
-      <p className="text-white text-center text-sm md:text-md font-bold my-4">
+      <p className="text-white text-center text-sm md:text-md font-bold my-2">
         {movie.title}
       </p>
+      <span className="text-white font-bold mb-4">⭐ {movie.vote_average}</span>
     </Link>
   );
 }
