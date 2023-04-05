@@ -29,13 +29,16 @@ export default async function Movie({
     return notFound();
   }
 
+  const words = overview.split(" ");
+  const text = words.slice(0, 40).join(" ");
+
   return (
     <div>
       <div
         key={id}
-        className="w-11/12 md:w-4/5 flex flex-col md:flex-row justify-evenly items-center mx-auto my-4 md:my-8"
+        className="w-11/12 md:w-4/5 gap-10 flex flex-col md:flex-row justify-evenly items-center mx-auto my-4 md:my-8"
       >
-        <div className="w-full md:w-2/5">
+        <div className="w-full mb-2 md:mb-0 md:w-2/5">
           <Image
             src={
               poster_path
@@ -48,19 +51,19 @@ export default async function Movie({
             className="rounded-md md:ml-8"
           />
         </div>
-        <div className="h-[520px] mt-16 md:mt-0 w-11/12 md:w-1/2 flex flex-col justify-evenly ">
-          <h3 className="text-lg md:text-4xl font-bold">{title}</h3>
+        <div className="h-[520px] mt-4 md:mt-0 w-11/12 md:w-1/2 flex flex-col justify-evenly ">
+          <h3 className="text-2xl md:text-4xl font-bold">{title}</h3>
           <span className="text-white font-bold mb-4">
             ⭐ {vote_average} | {release_date}
           </span>
-          <h3 className="font-bold">THE GENRES</h3>
+          <h3 className="font-bold text-md">THE GENRES</h3>
           <div className="flex gap-4 items-center mb-4">
             {genres.map((genre: any) => (
               <span key={genre.id}>{genre.name}</span>
             ))}
           </div>
-          <h3 className="font-bold">THE SYNOPSIS</h3>
-          <p className="mb-8 text-justify">{overview}</p>
+          <h3 className="font-bold text-md">THE SYNOPSIS</h3>
+          <p className="mb-8 text-justify">{text}</p>
           <h3 className="font-bold">TOP CAST</h3>
           <div className="flex flex-wrap gap-2 mb-8">
             {casts.slice(0, 10).map((cast: Cast) => (
@@ -92,7 +95,7 @@ export default async function Movie({
         </div>
       </div>
 
-      <h1 className="text-xl font-bold text-center md:text-left mt-24 md:ml-40">
+      <h1 className="text-xl font-bold text-center md:text-left mt-24 w-8/12 mx-auto">
         TOP RECOMMENDATIONS
       </h1>
       <div className="flex flex-wrap justify-center items-center">

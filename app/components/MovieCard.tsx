@@ -6,7 +6,7 @@ export default function MovieCard({ movie }: { movie: any }) {
     <Link
       href={`/movie/${movie.id}`}
       key={movie.id}
-      className="w-[145px] h-[288px] md:w-[253px] md:h-[455px] flex flex-col justify-center items-center m-4 bg-slate-800 rounded-xl max-w-xs transition duration-300 ease-in-out hover:scale-105 hover:opacity-80"
+      className="w-[148px] h-[295px] md:w-[253px] md:h-[455px] flex flex-col justify-center items-center m-4 bg-slate-800 rounded-xl max-w-xs transition duration-300 ease-in-out hover:scale-105 hover:opacity-80"
     >
       <Image
         src={

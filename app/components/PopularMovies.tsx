@@ -7,7 +7,7 @@ export default function popularMovies({
   popularMovies: any;
 }) {
   return (
-    <div className="flex flex-wrap justify-center items-center">
+    <div className="flex flex-wrap justify-center items-center my-2">
       {popularMovies.slice(0, 4).map((movie: Movie) => (
         <MovieCard movie={movie} key={movie.id} />
       ))}
