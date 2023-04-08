@@ -5,6 +5,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { movieId: number };
+}) {
+  const { movieId } = params;
+  const movieDetail = await getMovieDetails(movieId); // deduplicated
+
+  const movie = movieDetail.id.toString() === movieId.toString();
+
+  if (!movie) {
+    return {
+      title: "Post Not Found",
+    };
+  }
+
+  return {
+    title: movieDetail.title,
+  };
+}
+
 export default async function Movie({
   params,
 }: {
@@ -48,7 +69,7 @@ export default async function Movie({
             alt={title}
             width={350}
             height={450}
-            className="rounded-md md:ml-8"
+            className="rounded-md mx-auto md:ml-8"
           />
         </div>
         <div className="h-[520px] mt-4 md:mt-0 w-11/12 md:w-1/2 flex flex-col justify-evenly ">

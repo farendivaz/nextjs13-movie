@@ -10,7 +10,7 @@ export default function Navbar() {
             href="/"
             className="text-xl md:text-2xl text-white font-semibold"
           >
-            MOVIEMANIA
+            MOVIELAND
           </Link>
           <Search />
         </div>

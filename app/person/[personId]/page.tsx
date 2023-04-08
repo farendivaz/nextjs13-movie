@@ -2,7 +2,26 @@ import MovieCard from "@/app/components/MovieCard";
 import { getPersonMovies, getPersonDetails } from "@/lib/movies";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { personId: number };
+}) {
+  const { personId } = params;
+  const personDetail = await getPersonDetails(personId); // deduplicated
+
+  const person = personDetail.id.toString() === personId.toString();
+  if (!person) {
+    return {
+      title: "Post Not Found",
+    };
+  }
+
+  return {
+    title: personDetail.name,
+  };
+}
 
 export default async function Person({
   params,
@@ -15,15 +34,15 @@ export default async function Person({
     await getPersonDetails(personId);
 
   const words = biography.split(" ");
-  const text = words.slice(0, 150).join(" ");
+  const text = words.slice(0, 70).join(" ");
 
   return (
     <div>
       <div
         key={id}
-        className="w-4/5 flex justify-evenly items-center mx-auto my-8"
+        className="w-full md:w-4/5 flex flex-col md:flex-row justify-evenly items-center mx-auto my-8"
       >
-        <div className="w-2/5">
+        <div className="w-4/5  mx-auto md:w-2/5">
           <Image
             src={
               profile_path
@@ -33,11 +52,11 @@ export default async function Person({
             alt={name}
             width={350}
             height={450}
-            className="rounded-md"
+            className="rounded-md mx-auto"
           />
         </div>
-        <div className="h-[520px] w-1/2 flex flex-col justify-evenly ">
-          <h3 className="text-5xl font-bold">{name}</h3>
+        <div className="h-[520px] w-4/5 md:w-1/2 flex flex-col justify-center md:justify-evenly ">
+          <h3 className="text-3xl md:text-5xl font-bold">{name}</h3>
           <span className="text-white font-bold mb-4">{birthday}</span>
           <h3 className="font-bold mt-2">THE BIOGRAPHY</h3>
           <p className="mb-8 text-justify">{text}</p>
@@ -67,7 +86,10 @@ export default async function Person({
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap justify-center items-center">
+      <h2 className="mt-8 md:mt-16 font-bold text-xl w-4/5 text-center mx-auto md:text-left md:ml-48">
+        ALSO APPEARS IN MOVIES
+      </h2>
+      <div className="w-full md:w-4/5 mx-auto flex flex-wrap justify-center items-center ">
         {movies.map((movie: Movie) => (
           <MovieCard movie={movie} key={movie.id} />
         ))}
