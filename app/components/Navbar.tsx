@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Search from "./Search";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
@@ -10,7 +11,13 @@ export default function Navbar() {
             href="/"
             className="text-xl md:text-2xl text-white font-semibold"
           >
-            MOVIELAND
+            <Image
+              src="images/moviedb.svg"
+              width={100}
+              height={100}
+              priority
+              alt="The MovieDB Icon"
+            />
           </Link>
           <Search />
         </div>
