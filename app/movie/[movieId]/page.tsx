@@ -64,7 +64,7 @@ export default async function Movie({
             src={
               poster_path
                 ? `${process.env.IMAGE_URL}${poster_path}`
-                : `${process.env.EMPTY_IMAGE_URL}${poster_path}`
+                : "https://critics.io/img/movies/poster-placeholder.png"
             }
             alt={title}
             width={350}

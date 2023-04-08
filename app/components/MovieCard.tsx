@@ -12,7 +12,7 @@ export default function MovieCard({ movie }: { movie: any }) {
         src={
           movie?.poster_path
             ? `${process.env.IMAGE_URL}${movie?.poster_path}`
-            : `${process.env.EMPTY_IMAGE_URL}`
+            : "https://critics.io/img/movies/poster-placeholder.png"
         }
         alt={movie.title}
         width={250}

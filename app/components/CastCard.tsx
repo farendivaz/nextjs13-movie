@@ -8,7 +8,7 @@ export default function CastCard({ cast }: { cast: any }) {
         src={
           cast?.profile_path
             ? `${process.env.IMAGE_URL}${cast?.profile_path}`
-            : `${process.env.EMPTY_IMAGE_URL}`
+            : "https://critics.io/img/movies/poster-placeholder.png"
         }
         alt={cast.title}
         width={50}
