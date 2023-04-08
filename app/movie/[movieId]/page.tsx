@@ -70,6 +70,7 @@ export default async function Movie({
             width={350}
             height={450}
             className="rounded-md mx-auto md:ml-8"
+            loading="lazy"
           />
         </div>
         <div className="h-[520px] mt-4 md:mt-0 w-11/12 md:w-1/2 flex flex-col justify-evenly ">
